@@ -1,15 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <locale.h>
-#include<string.h>
-#include"tabelahash.h"
-#include<time.h>
+#include <math.h>
+#include "TreeBin.h"
 
 int main()
 {
 
-    inicializar();
-    jogo_Impar_Par();
-    return 0;
-}
 
+    Arv* a = cria('a',
+                  cria('b',
+                       inicializa(),
+                       cria('d', inicializa(), inicializa())
+                      ),
+                  cria('c',
+                       cria('e', inicializa(), inicializa()),
+                       cria('f', inicializa(), inicializa())
+                      )
+                 );
+
+    Arv* a1= cria('b',inicializa(),inicializa());
+
+    Arv* b=cria('2',a1,a1);
+
+    imprime(a);
+
+    printf("\n\n");
+    imprime(a1);
+
+    printf("\n\n");
+
+    imprime(b);
+
+
+
+    printf("imprimir seta ");
+    imprime_seta(a);
+
+    printf("\n\n");
+
+
+
+    system("pause");
+    return 0;
+
+}
