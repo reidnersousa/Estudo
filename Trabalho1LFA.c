@@ -57,10 +57,7 @@ void verificaABBA (char variavel[20])
         printf("\n teste 2%c %d",variavel[k],k);
         l++;
     }
-    printf("\n primeiro %c",primeiraParte[0]);
-    printf("\n primeiro %c",primeiraParte[1]);
-    printf("\n segunda  %c",segundaParte[0]);
-    printf("\n segunda  %c",segundaParte[1]);
+
 
     printf("\n>>%s",primeiraParte);
     printf("\n>>%s",segundaParte);
@@ -68,10 +65,10 @@ void verificaABBA (char variavel[20])
     int m;
 
     if(strcmp(primeiraParte,segundaParte)==0){
-        printf("iguais");
+        printf("\n iguais (aceita)");
     }
     else
-        printf("difentes");
+        printf("\n difentes(rejeita)");
 
 
 
