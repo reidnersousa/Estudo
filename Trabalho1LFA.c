@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,13 +8,49 @@ int main()
 
 
 
-    char aab[6]="baba";
+    char aab[25]="babac";
+    printf("\t1 para rejeita e 0 para aceita \n\n");
 
+    printf("Para a palavra babac  a linguagem :");
     verificaABBA(aab);
+
+    char baba[20]="baba";
+    printf("\nPara a palavra baba  a linguagem :");
+
+    verificaABBA(baba);
+
+    char babab[20]="babab";
+    printf("\nPara a palavra babab  a linguagem :");
+
+    verificaABBA(babab);
+
     return 0;
 }
 
+int verificaSeTemApenasAouB(char variavel[20]){
+    int i;
 
+    // 0 para aceita e 1 para rejeita
+
+
+
+    for(i=0; variavel[i]!=NULL; i++)
+    {
+        switch(variavel[i]){
+            case 'a':
+                //printf("\n tem uma a");
+                continue;
+            case 'b':
+                //printf("\n tem uma b");
+                continue;
+            default :
+               // printf("\n não tem");
+                return 1;
+        }
+
+
+    }
+}
 
 void verifica(char variavel[20])
 {
@@ -31,9 +68,13 @@ void verifica(char variavel[20])
 
 }
 
-void verificaABBA (char variavel[20])
+
+// 0 para aceita e 1 para rejeita
+int verificaABBA (char variavel[20])
 {
     int i,k,tamanho=0;
+    int j=0;
+    int decisao;
     char primeiraParte[20]="0";
     char segundaParte[20]="0";
 
@@ -42,9 +83,21 @@ void verificaABBA (char variavel[20])
         tamanho++;
     }
 
+    decisao=verificaSeTemApenasAouB(variavel);
+   // printf("\n Decisao %d",decisao);
+    if(decisao==0){
+        printf("\nA linguagem Aceita pois so tem 'a' e 'b' \n");
+    }
+    else if (decisao==1){
+        printf("\nA linguagem Rejeita pois tem letras diferentes de 'a' e 'b'\n");
+        return 1;
+    }
+
+
+
     for(i=0;i<tamanho/2;i++){
         primeiraParte[i]=variavel[i];
-        printf("\n teste 2%c %d",variavel[i],i);
+       // printf("\n P teste 2%c %d",variavel[i],i);
 
 
     }
@@ -54,22 +107,24 @@ void verificaABBA (char variavel[20])
 
         segundaParte[l]=variavel[k];
 
-        printf("\n teste 2%c %d",variavel[k],k);
+     //   printf("\n S teste 2%c %d",variavel[k],k);
         l++;
     }
 
 
-    printf("\n>>%s",primeiraParte);
-    printf("\n>>%s",segundaParte);
+    //printf("\n>>%s",primeiraParte);
+    //printf("\n>>%s",segundaParte);
 
     int m;
 
     if(strcmp(primeiraParte,segundaParte)==0){
-        printf("\n iguais (aceita)");
+        printf("A primeira parte é igual a segunda parte (aceita)\n ");
+        return 0;
     }
-    else
-        printf("\n difentes(rejeita)");
-
+    else{
+        printf("A primeira parte é diferente da segunda parte (rejeita)\n");
+        return 1;
+    }
 
 
 
